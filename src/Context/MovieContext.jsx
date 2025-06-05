@@ -21,8 +21,6 @@ const MovieProvider = ({ children }) => {
     axios
       .get(`${API_URL_tv}/search/tv?api_key=${api_key}&query=${param}`)
       .then((res) => {
-        console.log(res.data.results);
-
         setTvseries(res.data.results);
       });
   }
