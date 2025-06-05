@@ -1,3 +1,10 @@
 export default function Main() {
-  return <h1>Main</h1>;
+  return (
+    <>
+      <div className="container-sm  mt-1">
+        <h1 className="text-center mb-1">MOVIES</h1>
+        <div className="row g-2"></div>
+      </div>
+    </>
+  );
 }

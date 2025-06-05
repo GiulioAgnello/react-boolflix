@@ -1,17 +1,17 @@
 export default function Header() {
   return (
     <>
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand">BOOLFLIX</a>
-          <form class="d-flex">
+      <nav className="navbar bg-body-tertiary">
+        <div className="container-fluid">
+          <a className="navbar-brand">BOOLFLIX</a>
+          <form className="d-flex">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Search a movie..."
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button className="btn btn-outline-success" type="submit">
               Search
             </button>
           </form>
