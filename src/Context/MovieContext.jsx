@@ -1,31 +1,31 @@
 import axios from "axios";
 import { createContext, useState, useEffect, useContext } from "react";
 
-// Link per API
-let baseurlApi = "http://localhost:3000/posts";
+const MovieContext = createContext();
 
-const PostsContext = createContext();
+const MovieProvider = ({ children }) => {
+  const [movie, setMovie] = useState([]);
 
-const PostProvider = ({ children }) => {
-  const [posts, setPost] = useState([]);
+  function fetchmovie() {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/search/movie?api_key=1e77a6c1b6a58f585e346407db92f6d6&query=terminator"
+      )
+      .then((res) => {
+        console.log(res.data.results);
 
-  function fetchpost() {
-    axios.get(`${baseurlApi}`).then((res) => {
-      console.log(res.data);
-
-      setPost(res.data.data);
-    });
+        setMovie(res.data.results);
+      });
   }
-  useEffect(fetchpost, []);
+  useEffect(fetchmovie, []);
 
-  const postData = { posts };
   return (
-    <PostsContext.Provider value={postData}>{children}</PostsContext.Provider>
+    <MovieContext.Provider value={"postData"}>{children}</MovieContext.Provider>
   );
 };
 
 const usePosts = () => {
-  return useContext(PostsContext);
+  return useContext(MovieContext);
 };
 
-export { PostProvider, usePosts };
+export { MovieProvider, usePosts };
