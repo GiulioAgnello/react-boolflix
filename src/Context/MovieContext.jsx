@@ -1,8 +1,9 @@
 import axios from "axios";
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 
 const MovieContext = createContext();
-const API_URL = "https://api.themoviedb.org/3";
+const API_URL_movie = "https://api.themoviedb.org/3";
+const API_URL_tv = "https://api.themoviedb.org/3";
 const api_key = "1e77a6c1b6a58f585e346407db92f6d6";
 const MovieProvider = ({ children }) => {
   const [movies, setMovie] = useState([]);
@@ -10,23 +11,22 @@ const MovieProvider = ({ children }) => {
 
   function fetchmovie(param) {
     axios
-      .get(`${API_URL}/search/movie?api_key=${api_key}&query=${param}`)
+      .get(`${API_URL_movie}/search/movie?api_key=${api_key}&query=${param}`)
       .then((res) => {
         setMovie(res.data.results);
       });
   }
 
-  function fetchTvSeries() {
+  function fetchTvSeries(param) {
     axios
-      .get(`${API_URL}/search/movie?api_key=${api_key}&query=spider`)
+      .get(`${API_URL_tv}/search/tv?api_key=${api_key}&query=${param}`)
       .then((res) => {
+        console.log(res.data.results);
+
         setTvseries(res.data.results);
       });
   }
 
-  useEffect(() => {
-    fetchmovie("movies");
-  }, []);
   const movieData = { movies, fetchmovie, tvseries, fetchTvSeries };
   return (
     <MovieContext.Provider value={movieData}>{children}</MovieContext.Provider>

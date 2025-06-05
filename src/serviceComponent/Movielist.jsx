@@ -1,7 +1,7 @@
 import { useMovies } from "../Context/MovieContext";
 
 export default function MovieList() {
-  const { movies } = useMovies();
+  const { movies, tvseries } = useMovies();
 
   function flegChange(param) {
     if (param === "en") {
@@ -36,6 +36,27 @@ export default function MovieList() {
               <small>language: {flegChange(movie.original_language)}</small>
               <hr />
               <small>Vote: {movie.vote_average}</small>
+            </div>
+          </div>
+        </div>
+      ))}
+      {tvseries.map((serie) => (
+        <div key={serie.id} className="col-4  ">
+          <div className="card ">
+            {/* <img
+              src={`http://localhost:3000${post.image}`}
+              className="card-img-top "
+              alt={post.title}
+            /> */}
+            <div className="card-body">
+              <h5 className="card-title">{serie.name}</h5>
+              <hr />
+              <small>Original Title: {serie.original_name}</small>
+
+              <hr />
+              <small>language: {flegChange(serie.original_language)}</small>
+              <hr />
+              <small>Vote: {serie.vote_average}</small>
             </div>
           </div>
         </div>
