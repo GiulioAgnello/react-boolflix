@@ -4,12 +4,12 @@ import { createContext, useState, useEffect, useContext } from "react";
 const MovieContext = createContext();
 
 const MovieProvider = ({ children }) => {
-  const [movie, setMovie] = useState([]);
+  const [movies, setMovie] = useState([]);
 
   function fetchmovie() {
     axios
       .get(
-        "https://api.themoviedb.org/3/search/movie?api_key=1e77a6c1b6a58f585e346407db92f6d6&query=terminator"
+        "https://api.themoviedb.org/3/search/movie?api_key=1e77a6c1b6a58f585e346407db92f6d6&query=spider"
       )
       .then((res) => {
         console.log(res.data.results);
@@ -18,14 +18,14 @@ const MovieProvider = ({ children }) => {
       });
   }
   useEffect(fetchmovie, []);
-
+  const movieData = { movies };
   return (
-    <MovieContext.Provider value={"postData"}>{children}</MovieContext.Provider>
+    <MovieContext.Provider value={movieData}>{children}</MovieContext.Provider>
   );
 };
 
-const usePosts = () => {
+const useMovies = () => {
   return useContext(MovieContext);
 };
 
-export { MovieProvider, usePosts };
+export { MovieProvider, useMovies };
