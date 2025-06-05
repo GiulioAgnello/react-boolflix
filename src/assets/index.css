@@ -1,3 +1,32 @@
-img {
+body {
+  background-color: rgb(64, 64, 64);
+}
+
+.flagimage img {
   width: 10%;
+}
+
+.card {
+  position: relative;
+  min-height: 100%;
+  color: white;
+  background-color: black;
+}
+
+.card-imagexd {
+  position: absolute;
+  object-fit: cover;
+}
+
+.card-imagexd img:hover {
+  display: none;
+}
+
+.col-4 {
+  min-height: 430px;
+}
+
+.navbar-brand {
+  color: red;
+  font-size: 30px;
 }

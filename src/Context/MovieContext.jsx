@@ -14,6 +14,7 @@ const MovieProvider = ({ children }) => {
       .get(`${API_URL_movie}/search/movie?api_key=${api_key}&query=${param}`)
       .then((res) => {
         setMovie(res.data.results);
+        console.log(res.data.results);
       });
   }
 

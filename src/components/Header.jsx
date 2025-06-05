@@ -29,12 +29,12 @@ export default function Header() {
   }
   return (
     <>
-      <nav className="navbar bg-body-tertiary">
+      <nav className="navbar bg-dark  border-body sticky-top ">
         <div className="container-fluid">
-          <a className="navbar-brand">BOOLFLIX</a>
+          <a className="navbar-brand fw-bolder ">BOOLFLIX</a>
           <form className="d-flex">
             <input
-              className="form-control me-2"
+              className="form-control"
               type="text"
               onChange={(e) => setSerchmovie(e.target.value)}
               placeholder="Search a movie..."

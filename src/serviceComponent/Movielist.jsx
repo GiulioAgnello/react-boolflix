@@ -1,5 +1,6 @@
 import { useMovies } from "../Context/MovieContext";
 
+// export
 export default function MovieList() {
   const { movies, tvseries } = useMovies();
 
@@ -20,22 +21,28 @@ export default function MovieList() {
   return (
     <>
       {movies.map((movie) => (
-        <div key={movie.id} className="col-4  ">
+        <div key={movie.id} className="col-4 g-4  ">
           <div className="card ">
-            {/* <img
-              src={`http://localhost:3000${post.image}`}
-              className="card-img-top "
-              alt={post.title}
-            /> */}
+            <div className="card-imagexd">
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                className="card-img-top "
+                alt={movie.title}
+              />
+            </div>
             <div className="card-body">
               <h5 className="card-title">{movie.title}</h5>
-              <hr />
-              <small>Original Title: {movie.original_title}</small>
 
-              <hr />
-              <small>language: {flegChange(movie.original_language)}</small>
-              <hr />
-              <small>Vote: {movie.vote_average}</small>
+              <div>Original Title: {movie.original_title}</div>
+
+              <div className="flagimage">
+                language: {flegChange(movie.original_language)}
+              </div>
+
+              <div>
+                Vote:
+                {Math.floor(movie.vote_average)}
+              </div>
             </div>
           </div>
         </div>
@@ -43,20 +50,23 @@ export default function MovieList() {
       {tvseries.map((serie) => (
         <div key={serie.id} className="col-4  ">
           <div className="card ">
-            {/* <img
-              src={`http://localhost:3000${post.image}`}
-              className="card-img-top "
-              alt={post.title}
-            /> */}
+            <div className="card-imagexd">
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${serie.poster_path}`}
+                className="card-img-top "
+                alt={serie.title}
+              />
+            </div>
             <div className="card-body">
               <h5 className="card-title">{serie.name}</h5>
-              <hr />
-              <small>Original Title: {serie.original_name}</small>
 
-              <hr />
-              <small>language: {flegChange(serie.original_language)}</small>
-              <hr />
-              <small>Vote: {serie.vote_average}</small>
+              <div>Original Title: {serie.original_name}</div>
+
+              <div className="flagimage">
+                language: {flegChange(serie.original_language)}
+              </div>
+
+              <div>Vote: {Math.floor(serie.vote_average)}</div>
             </div>
           </div>
         </div>
