@@ -2,6 +2,21 @@ import { useMovies } from "../Context/MovieContext";
 
 export default function MovieList() {
   const { movies } = useMovies();
+
+  function flegChange(param) {
+    if (param === "en") {
+      return <img src="public\Flag_of_the_United_Kingdom_(1-2).svg" alt="en" />;
+    }
+    if (param === "it") {
+      return (
+        <img
+          src="public\italy-italia-flag-of-italy-italian-flag-flag.webp"
+          alt="it"
+        />
+      );
+    } else
+      return <img src="public\Flag_with_question_mark.svg.png" alt="unknown" />;
+  }
   return (
     <>
       {movies.map((movie) => (
@@ -18,7 +33,7 @@ export default function MovieList() {
               <small>Original Title: {movie.original_title}</small>
 
               <hr />
-              <small>language: {movie.original_language}</small>
+              <small>language: {flegChange(movie.original_language)}</small>
               <hr />
               <small>Vote: {movie.vote_average}</small>
             </div>

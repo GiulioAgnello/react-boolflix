@@ -24,7 +24,9 @@ const MovieProvider = ({ children }) => {
       });
   }
 
-  useEffect(fetchmovie, []);
+  useEffect(() => {
+    fetchmovie("movies");
+  }, []);
   const movieData = { movies, fetchmovie, tvseries, fetchTvSeries };
   return (
     <MovieContext.Provider value={movieData}>{children}</MovieContext.Provider>

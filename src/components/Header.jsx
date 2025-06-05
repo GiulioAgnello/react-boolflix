@@ -4,7 +4,7 @@ import { useMovies } from "../Context/MovieContext";
 export default function Header() {
   const { fetchmovie } = useMovies();
 
-  const [movieserch, setSerchmovie] = useState("");
+  const [movieserch, setSerchmovie] = useState("movie");
 
   function hedlerSearch(e) {
     e.preventDefault();
