@@ -22,15 +22,14 @@ export default function MovieList() {
     <>
       {movies.map((movie) => (
         <div key={movie.id} className="col-4 g-4  ">
-          <div className="card ">
-            <div className="card-imagexd">
+          <div className="card position-relative">
+            <div className="card-imagexd  z-2">
               <img
-                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                className="card-img-top "
+                src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
                 alt={movie.title}
               />
             </div>
-            <div className="card-body">
+            <div className="card-body position-absolute top-50 start-50 translate-middle ">
               <h5 className="card-title">{movie.title}</h5>
 
               <div>Original Title: {movie.original_title}</div>
@@ -41,23 +40,23 @@ export default function MovieList() {
 
               <div>
                 Vote:
-                {Math.floor(movie.vote_average)}
+                {Math.ceil(movie.vote_average)}
               </div>
             </div>
           </div>
         </div>
       ))}
       {tvseries.map((serie) => (
-        <div key={serie.id} className="col-4  ">
-          <div className="card ">
-            <div className="card-imagexd">
+        <div key={serie.id} className="col-3  ">
+          <div className="card position-relative">
+            <div className="card-imagexd  z-2">
               <img
-                src={`https://image.tmdb.org/t/p/w300/${serie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`}
                 className="card-img-top "
                 alt={serie.title}
               />
             </div>
-            <div className="card-body">
+            <div className="card-body position-absolute top-50 start-50 translate-middle">
               <h5 className="card-title">{serie.name}</h5>
 
               <div>Original Title: {serie.original_name}</div>
@@ -66,7 +65,7 @@ export default function MovieList() {
                 language: {flegChange(serie.original_language)}
               </div>
 
-              <div>Vote: {Math.floor(serie.vote_average)}</div>
+              <div>Vote: {Math.ceil(serie.vote_average)}</div>
             </div>
           </div>
         </div>

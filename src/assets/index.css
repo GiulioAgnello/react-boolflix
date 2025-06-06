@@ -3,27 +3,21 @@ body {
 }
 
 .flagimage img {
-  width: 10%;
+  width: 20%;
 }
 
 .card {
-  position: relative;
-  min-height: 100%;
   color: white;
   background-color: black;
 }
 
-.card-imagexd {
-  position: absolute;
-  object-fit: cover;
+.card-imagexd img {
+  opacity: 1;
+  width: 100%;
 }
 
 .card-imagexd img:hover {
-  display: none;
-}
-
-.col-4 {
-  min-height: 430px;
+  opacity: 0;
 }
 
 .navbar-brand {
