@@ -26,6 +26,8 @@ const MovieProvider = ({ children }) => {
       });
   }
 
+  function starValue(param) {}
+
   const movieData = { movies, fetchmovie, tvseries, fetchTvSeries };
   return (
     <MovieContext.Provider value={movieData}>{children}</MovieContext.Provider>

@@ -1,6 +1,8 @@
 import { useMovies } from "../Context/MovieContext";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/fontawesome-free-solid";
 // export
+
 export default function MovieList() {
   const { movies, tvseries } = useMovies();
 
@@ -40,7 +42,14 @@ export default function MovieList() {
 
               <div>
                 Vote:
-                {Math.ceil(movie.vote_average)}
+                {[Math.ceil(movie.vote_average / 2)].map((v, i) => (
+                  <div key={i}>
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      style={{ color: "#FFD43B" }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -65,7 +74,7 @@ export default function MovieList() {
                 language: {flegChange(serie.original_language)}
               </div>
 
-              <div>Vote: {Math.ceil(serie.vote_average)}</div>
+              <div>Vote: {Math.ceil(serie.vote_average / 2)}</div>
             </div>
           </div>
         </div>

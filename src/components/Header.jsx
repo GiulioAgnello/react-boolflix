@@ -3,7 +3,6 @@ import { useMovies } from "../Context/MovieContext";
 
 export default function Header() {
   const { fetchmovie, fetchTvSeries } = useMovies();
-
   const [movieserch, setSerchmovie] = useState("movie");
 
   function hedlerSearch(e) {
