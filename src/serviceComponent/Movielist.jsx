@@ -23,7 +23,7 @@ export default function MovieList() {
   return (
     <>
       {movies.map((movie) => (
-        <div key={movie.id} className="col-4 g-4  ">
+        <div key={movie.id} className="col-3 g-4  ">
           <div className="card position-relative">
             <div className="card-imagexd  z-2">
               <img
@@ -57,7 +57,7 @@ export default function MovieList() {
         </div>
       ))}
       {tvseries.map((serie) => (
-        <div key={serie.id} className="col-3  ">
+        <div key={serie.id} className="col-3 g-4 ">
           <div className="card position-relative">
             <div className="card-imagexd  z-2">
               <img
@@ -78,7 +78,7 @@ export default function MovieList() {
               <div>
                 Vote:{" "}
                 {Array.from({ length: Math.ceil(serie.vote_average / 2) }).map(
-                  (_, i) => (
+                  (v, i) => (
                     <FontAwesomeIcon
                       key={i}
                       icon={faStar}
