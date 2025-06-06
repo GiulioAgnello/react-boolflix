@@ -42,14 +42,15 @@ export default function MovieList() {
 
               <div>
                 Vote:
-                {[Math.ceil(movie.vote_average / 2)].map((v, i) => (
-                  <div key={i}>
+                {Array.from({ length: Math.ceil(movie.vote_average / 2) }).map(
+                  (_, i) => (
                     <FontAwesomeIcon
+                      key={i}
                       icon={faStar}
                       style={{ color: "#FFD43B" }}
                     />
-                  </div>
-                ))}
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -74,7 +75,18 @@ export default function MovieList() {
                 language: {flegChange(serie.original_language)}
               </div>
 
-              <div>Vote: {Math.ceil(serie.vote_average / 2)}</div>
+              <div>
+                Vote:{" "}
+                {Array.from({ length: Math.ceil(movie.vote_average / 2) }).map(
+                  (_, i) => (
+                    <FontAwesomeIcon
+                      key={i}
+                      icon={faStar}
+                      style={{ color: "#FFD43B" }}
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>
