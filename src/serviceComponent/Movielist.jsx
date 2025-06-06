@@ -31,7 +31,7 @@ export default function MovieList() {
                 alt={movie.title}
               />
             </div>
-            <div className="card-body position-absolute top-50 start-50 translate-middle ">
+            <div className="card-body position-absolute  ">
               <h5 className="card-title">{movie.title}</h5>
 
               <div>Original Title: {movie.original_title}</div>
@@ -66,7 +66,7 @@ export default function MovieList() {
                 alt={serie.title}
               />
             </div>
-            <div className="card-body position-absolute top-50 start-50 translate-middle">
+            <div className="card-body position-absolute   ">
               <h5 className="card-title">{serie.name}</h5>
 
               <div>Original Title: {serie.original_name}</div>
@@ -77,7 +77,7 @@ export default function MovieList() {
 
               <div>
                 Vote:{" "}
-                {Array.from({ length: Math.ceil(movie.vote_average / 2) }).map(
+                {Array.from({ length: Math.ceil(serie.vote_average / 2) }).map(
                   (_, i) => (
                     <FontAwesomeIcon
                       key={i}
